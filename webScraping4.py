@@ -15,7 +15,7 @@ bsObject = BeautifulSoup(driver.page_source, "html.parser")
 title_songs = []
 for song in bsObject.find_all('tr', {'class':'lst50'}):
     title = song.select('input')[0].get('title')
-    title_songs.append(title)
+    title_songs.append(title.replace(' 곡 선택', ''))
 
-for song in title_songs:
+for song in enumerate(title_songs, 1):
     print(song)
